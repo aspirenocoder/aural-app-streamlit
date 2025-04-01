@@ -13,7 +13,7 @@ formatted_timestamp = current_timestamp.strftime("%Y-%m-%d %H:%M:%S")
 
 # Connect to MongoDB
 client = MongoClient(
-    st.secrets["MONGO_URL"]
+    os.environ.get("MONGO_URL")
 )
 db = client["test"]
 collection = db["entries"]
