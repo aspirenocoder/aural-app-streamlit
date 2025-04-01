@@ -2,10 +2,11 @@ from openai import OpenAI
 from helper.mongo import insert, dinsert
 from dotenv import load_dotenv
 import os
+import streamlit as st
 load_dotenv()
 
 client = OpenAI(
-    api_key=os.environ.get("OPENAI_API_KEY")
+    api_key=st.secrets["OPENAI_API_KEY"]
 )
 
 options = ["Standard English to ISL English", "ISL English to Standard English"]

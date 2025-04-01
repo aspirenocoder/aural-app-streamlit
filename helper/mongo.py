@@ -2,6 +2,7 @@ from pymongo import MongoClient
 from datetime import datetime
 from dotenv import load_dotenv
 import os
+import streamlit as st
 load_dotenv()
 
 # Get the current timestamp
@@ -12,7 +13,7 @@ formatted_timestamp = current_timestamp.strftime("%Y-%m-%d %H:%M:%S")
 
 # Connect to MongoDB
 client = MongoClient(
-    os.environ.get("MONGO_URL")
+    st.secrets["MONGO_URL"]
 )
 db = client["test"]
 collection = db["entries"]
