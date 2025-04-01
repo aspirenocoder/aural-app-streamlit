@@ -1,8 +1,11 @@
 from openai import OpenAI
 from helper.mongo import insert, dinsert
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 client = OpenAI(
-    api_key="sk-GoDrc1mSQqGJwqxcCWr4JQVuIcIVAvQcP6rHAJUE0TT3BlbkFJqZycUTdlP6mGM1_Qk4i2JWNp8ST_VqRKLPEErbEmcA"
+    api_key=os.environ.get("OPENAI_API_KEY")
 )
 
 options = ["Standard English to ISL English", "ISL English to Standard English"]
